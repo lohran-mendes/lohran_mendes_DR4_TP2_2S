@@ -1,0 +1,30 @@
+﻿@page
+@model lohran_mendes_DR4_TP2_2S.Pages.CountryManager.CreateCountry
+
+@{
+}
+
+<form method="post">
+    <div>
+        <label for="countryName">Nome do País:</label>
+        <input type="text" id="countryName" asp-for="Input.CountryName"/>
+        <span asp-validation-for="Input.CountryName" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="countryCode">Código do País:</label>
+        <input type="text" id="countryCode" asp-for="Input.CountryCode"/>
+        <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
+    </div>
+    <button type="submit">Criar País</button>
+</form>
+
+@if (Model.Country != null)
+{
+    <strong>País Criado:</strong>
+    <p>Nome: @Model.Country.CountryName</p>
+    <p>Código: @Model.Country.CountryCode</p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,15 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace lohran_mendes_DR4_TP2_2S.Pages.CityManager;
 
 public class CreateCity : PageModel
 {
-    [BindProperty]
-    public string? CityName { get; set; }
+    [BindProperty] public InputModel Input { get; set; } = new();
+    public string CityName { get; set; } = "";
 
-    public void OnGet()
+    public void OnPost()
     {
+        if (ModelState.IsValid)
+        {
+            CityName = Input.CityName!;
+        }
     }
-    
 }
