@@ -1,0 +1,19 @@
+﻿@page
+@model CreateCity
+
+@{
+}
+
+@* Crie um formulário que envia o nome de uma cidade através de um método POST*@
+<form method="post">
+    <div>
+        <label for="cityName">Nome da Cidade:</label>
+        <input type="text" id="cityName" name="cityName" required asp-for="CityName"/>
+    </div>
+    <button type="submit">Criar Cidade</button>
+</form>
+@if (!string.IsNullOrEmpty(Model.CityName))
+{
+    <strong>Cidade Criada:</strong>
+    <p>@Model.CityName</p>
+}
